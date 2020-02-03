@@ -1,0 +1,34 @@
+{
+  "name": "toronto-neighbourhood-safety",
+  "version": "1.0.0",
+  "description": "Toronto neighbourhood danger statistics",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andydurette/Toronto-Neighborhood-Safety.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "charts.js"
+  ],
+  "author": "Andy Durette",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andydurette/Toronto-Neighborhood-Safety/issues"
+  },
+  "homepage": "https://github.com/andydurette/Toronto-Neighborhood-Safety#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
