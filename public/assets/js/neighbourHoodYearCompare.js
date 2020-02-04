@@ -87,51 +87,59 @@
 
     /***********************     INITIAL NEIGHBOURHOODYEARCOMPARE FORM DATA START    ****************************/
 
-    var division = {};
-    apiData.forEach(function(item) {
-        if (!division[item.attributes.Division]) {
-            division[item.attributes.Division] = item.attributes.Division
-        }
-    });
-
-    // Variables for quick selection
-    var districtYearCompareOptions = document.querySelector("#districtYearCompare");
-    var divisionKeys = Object.keys(division).sort();
-
-    // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    divisionKeys.forEach(function(item) {
-        var option = document.createElement('option');
-        option.innerHTML = item;
-        option.setAttribute("value", item);
-        districtYearCompareOptions.appendChild(option);
-    });
 
     // Object to hold values for looping and creating dynamicly generated html
-    var dataYears = {};
-    // Data generated to above object from Querying ApiData
-    apiData.forEach(function(item) {
-        if (!dataYears[item.attributes.reportedyear]) {
-            dataYears[item.attributes.reportedyear] = item.attributes.reportedyear
-        }
-    });
+    let division;
 
-    var dataYearsKeys = Object.keys(dataYears).sort();
+    function setData() {
+        // Variables for quick selection
+        var districtYearCompareOptions = document.querySelector("#districtYearCompare");
+        var divisionKeys = Object.keys(division).sort();
+        // Gets the array from divisionKey to dynamicly create html options for a selection form element
+        divisionKeys.forEach(function(item) {
+            var option = document.createElement('option');
+            option.innerHTML = item;
+            option.setAttribute("value", item);
+            districtYearCompareOptions.appendChild(option);
+        });
+ 
+        // Object to hold values for looping and creating dynamicly generated html
+        
+        // Data generated to above object from Querying ApiData
 
-    // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    dataYearsKeys.forEach(function(item) {
-        var option = document.createElement('option');
-        option.innerHTML = item;
-        option.setAttribute("value", item);
-        year1.appendChild(option);
-    });
+        var dataYearsKeys = Object.keys(dataYears).sort();
 
-    // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    dataYearsKeys.forEach(function(item) {
-        var option = document.createElement('option');
-        option.innerHTML = item;
-        option.setAttribute("value", item);
-        year2.appendChild(option);
-    });
+        // Gets the array from divisionKey to dynamicly create html options for a selection form element
+        dataYearsKeys.forEach(function(item) {
+            var option = document.createElement('option');
+            option.innerHTML = item;
+            option.setAttribute("value", item);
+            year1.appendChild(option);
+        });
+
+        // Gets the array from divisionKey to dynamicly create html options for a selection form element
+        dataYearsKeys.forEach(function(item) {
+            var option = document.createElement('option');
+            option.innerHTML = item;
+            option.setAttribute("value", item);
+            year2.appendChild(option);
+        });
+
+    }
+
+
+    const API = {
+    async districtInfoCheck() {
+        const res = await fetch(`/api/districtInfoCheck`);
+        const json = await res.json();
+    
+        division = json.division
+        dataYears = json.dataYears
+        setData();
+      }
+    }
+
+    API.districtInfoCheck()
 
     /***********************     INITIAL NEIGHBOURHOODYEARCOMPARE FORM DATA END    ****************************/
 
@@ -259,6 +267,7 @@
 
 
     /* Start of checking for local storage value now that the dynamic html values are loaded */
+    /*
     if (localStorage.getItem("Year1StoredValue")) {
         document.querySelector('#year1 [value="' + localStorage.getItem("Year1StoredValue") + '"]').selected = true;
     }
@@ -278,6 +287,7 @@
         }
         
     }
+    */
 
     
 

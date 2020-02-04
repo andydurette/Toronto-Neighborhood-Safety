@@ -10,7 +10,9 @@ const API = {
     }
 }
 
-API.getRecords();
+// API.getRecords();
+
+
 
 
 let loadHide = function() {
@@ -34,3 +36,5 @@ scriptAdd('assets/js/neighbourHoodCompare.js');
 scriptAdd('assets/js/neighbourHoodYearCompare.js');
 
 }
+
+finishSetup()

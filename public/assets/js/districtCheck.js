@@ -65,36 +65,9 @@ let callMCI = function(district) {
 mciApi.getRecordsP(district);
 
 
-
-  // Set to Record all major crime indicators (MCI) from the APIDATA
-  var MCI = {}
-
-  // Loop through to provide all the data on MCI'S and how many
-  apiData.forEach(function(item){
-    if ( item.attributes.Division === district ){
-      if (MCI[item.attributes.MCI]){
-        MCI[item.attributes.MCI] = MCI[item.attributes.MCI] + 1
-      }else{
-        MCI[item.attributes.MCI] = 1
-       }
-    }});
-
-    // Provides data from loop for updading chart data
-    /*
-    var crimeValues = Object.values(MCI);
-    var crimeTotal = 0;
-    Object.values(MCI).forEach(function(item){
-      crimeTotal = crimeTotal + item
-    })
-    */
- 
-     
-    
-
-
 /* Horizontal Bar Build Chart Start */
 
-document.querySelector('.modal-guts h2').innerHTML = `Crime Since 2014`;    
+document.querySelector('.modal-guts h2').innerHTML = `Crime during 2014-2018`;    
 document.getElementById("modal").classList.remove("hide");
 document.getElementById("modalOverlay").classList.remove("hide"); 
 

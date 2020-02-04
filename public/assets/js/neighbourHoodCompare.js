@@ -72,34 +72,60 @@
     window.addEventListener("resize", chartLegendUpdate);
     window.addEventListener("orientationchange", chartLegendUpdate)
     /***********************     CHART CREATION END    ****************************/
+
+
+
+
+
+
+
+
+
     /***********************     INITIAL NEIGHBOURHOODCOMPARE FORM DATA START    ****************************/
+
+
+
+
     // Object to hold values for looping and creating dynamicly generated html
-    var division = {};
-    // Data generated to above object from Querying ApiData
-    apiData.forEach(function(item) {
-        if (!division[item.attributes.Division]) {
-            division[item.attributes.Division] = item.attributes.Division
-        }
-    });
-    // Variables for quick selection
-    var district1Options = document.querySelector("#district1");
-    var district2Options = document.querySelector("#district2");
-    var divisionKeys = Object.keys(division).sort();
-    // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    divisionKeys.forEach(function(item) {
-        var option = document.createElement('option');
-        option.innerHTML = item;
-        option.setAttribute("value", item);
-        district1Options.appendChild(option);
-    });
-    // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    divisionKeys.forEach(function(item) {
-        var option = document.createElement('option');
-        option.innerHTML = item;
-        option.setAttribute("value", item);
-        district2Options.appendChild(option);
-    });
+    let division;
+
+    function setData() {
+        // Variables for quick selection
+        var district1Options = document.querySelector("#district1");
+        var district2Options = document.querySelector("#district2");
+        var divisionKeys = Object.keys(division).sort();
+        // Gets the array from divisionKey to dynamicly create html options for a selection form element
+        divisionKeys.forEach(function(item) {
+            var option = document.createElement('option');
+            option.innerHTML = item;
+            option.setAttribute("value", item);
+            district1Options.appendChild(option);
+        });
+        // Gets the array from divisionKey to dynamicly create html options for a selection form element
+        divisionKeys.forEach(function(item) {
+            var option = document.createElement('option');
+            option.innerHTML = item;
+            option.setAttribute("value", item);
+            district2Options.appendChild(option);
+        });
+    }
+
+    const API = {
+    async districtInfoCheck() {
+        const res = await fetch(`/api/districtInfoCheck`);
+        const json = await res.json();
+    
+        division = json.division
+        setData();
+      }
+    }
+
+    API.districtInfoCheck()
+
     /***********************     INITIAL NEIGHBOURHOODCOMPARE FORM DATA END    ****************************/
+
+
+
     /***********************     NEIGHBOURHOODCOMPARE FORM EVENT HANDLERS START    ****************************/
     // Runs events that are triggered by a form fields change of value
     district1.addEventListener("change", function() {
@@ -172,6 +198,9 @@
         }
     });
     /***********************     NEIGHBOURHOODCOMPARE FORM EVENT HANDLERS END    ****************************/
+
+
+
     /***********************     NEIGHBOURHOODCOMPARE BUTTON TO UPDATE FORM START    ****************************/
     // Compares called data
     var neighbourHoodCompare = function(e) {
@@ -211,6 +240,9 @@
     // Upon the sections Button Click Run the above function
     document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
     /***********************     NEIGHBOURHOODCOMPARE BUTTON TO UPDATE FORM END    ****************************/
+
+
+
     /***********************     LOCAL STORAGE START    ****************************/
 
     
@@ -230,7 +262,9 @@
     neighbourhood2.addEventListener("change", function() {
         localStorage.setItem("neighbourhood2StoredValue", neighbourhood2.value);
     });
-    /* Start of checking for local storage value now that the dynamic html values are loaded */
+
+    /*
+    // Start of checking for local storage value now that the dynamic html values are loaded 
     if (localStorage.getItem("district1StoredValue") && localStorage.getItem("district1StoredValue") !== "Empty") {
         document.querySelector('#district1 [value="' + localStorage.getItem("district1StoredValue") + '"]').selected = true;
         document.querySelector('#district1').dispatchEvent(new Event('change'));
@@ -252,6 +286,7 @@
             }
         }
     }
+    */
     
     /***********************     LOCAL STORAGE END    ****************************/
 })();
