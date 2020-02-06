@@ -2,7 +2,6 @@
 
 **Project 1 for University of Toronto coding Bootcamp.**
 
-**Live Demo:** https://andydurette.github.io/UFT-Project-1/ 
 
 **API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data 
 
