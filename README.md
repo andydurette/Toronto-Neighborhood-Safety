@@ -17,4 +17,4 @@ This project was made with one thing in mind how safe are Toronto neighbourhoods
 The hope of the project is to provide the end user with the insight into how best to go about being aware of crime. The user could use it to better protect themselves or move out of a worsening neighbourhood.
 
 
-![markdown-preview-image](assets/images/markdown-preview-image.png)
+![markdown-preview-image](public/assets/images/markdown-preview-image.png)
