@@ -6,9 +6,7 @@ const path = require('path');
 let policeData = require('./files/data.json');
 let callMCI = require('./lib/callMCI.js');
 let districtInfoCheck = require('./lib/districtInfoCheck.js');
-
-// const policeData = require("./lib/policeData.js");
-
+let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
 
 
 // Create an instance of the express app.
@@ -43,6 +41,15 @@ app.post("/api/mapMCI", (req,res) => {
 app.get("/api/districtInfoCheck", (req,res) => {
  res.json(districtInfoCheck());
 });
+
+app.post("/api/neighbourhoodsList", (req,res) => {
+  console.log(req.body.district);
+  //res.sendStatus(200);
+  //console.log(neighbourhoodsList(req.body.district));
+  res.json(neighbourhoodsList(req.body.district)); 
+  //res.sendStatus(200);
+});
+
 
 
 

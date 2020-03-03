@@ -76,15 +76,7 @@
 
 
 
-
-
-
-
-
     /***********************     INITIAL NEIGHBOURHOODCOMPARE FORM DATA START    ****************************/
-
-
-
 
     // Object to hold values for looping and creating dynamicly generated html
     let division;
@@ -111,13 +103,24 @@
     }
 
     const API = {
-    async districtInfoCheck() {
-        const res = await fetch(`/api/districtInfoCheck`);
-        const json = await res.json();
-    
-        division = json.division
-        setData();
-      }
+        async districtInfoCheck() {
+            const res = await fetch(`/api/districtInfoCheck`);
+            const json = await res.json();
+        
+            division = json.division
+            setData();
+        },
+
+        async neighbourhoodsList(district) {
+            const res = await fetch("/api/neighbourhoodsList", {
+            method: "POST",
+            body: JSON.stringify({district}),
+            headers: { "Content-Type": "application/json" }
+            });
+        
+            const json = await res.json();
+            return json
+        }
     }
 
     API.districtInfoCheck()
@@ -128,9 +131,10 @@
 
     /***********************     NEIGHBOURHOODCOMPARE FORM EVENT HANDLERS START    ****************************/
     // Runs events that are triggered by a form fields change of value
-    district1.addEventListener("change", function() {
+    district1.addEventListener("change", async () => {
         // This checks if the districts have been choseen so the button can be use to search for the data
-        var neighbourhoodList1 = {};
+        let data = await  API.neighbourhoodsList(district1.value);
+        let neighbourhoodList1 = await data;
         if (district1.value === "Empty" || district2.value === "Empty") {
             document.querySelector("#neighbourhoodCompareButton").disabled = true;
             document.querySelector("#neighbourhoodCompareButton").classList.add('disabled');
@@ -138,11 +142,14 @@
             document.querySelector("#neighbourhoodCompareButton").disabled = false;
             document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
         }
-        // This checks if the district1 selection has been choose if it hasn't we disable the neighborhood1 selection as it we have not dynamicly generated the neighborhoods to it.
+        // This checks if the district1 selection has been choosen, if it hasn't we disable the neighborhood1 selection as it we have not dynamicly generated the neighborhoods to it.
         if (district1.value === "Empty") {
             neighbourhood1.disabled = true;
         } else {
             neighbourhood1.disabled = false;
+
+            console.log(neighbourhoodList1);
+
             // We check the nighbourhoods belonging to the district by comparing it to the API data for that district
             apiData.forEach(function(item) {
                 if (item.attributes.Division === district1.value) {
@@ -160,12 +167,17 @@
                 option.setAttribute("value", item);
                 neighbourhood1.appendChild(option);
             });
+            
         }
+        
     })
+
+    
     // Runs events that are triggered by a form fields change of value
-    district2.addEventListener("change", function() {
+    district2.addEventListener("change", async () => {
         // This checks if the districts have been choseen so the button can be use to search for the data
-        var neighbourhoodList2 = {};
+        let data = await  API.neighbourhoodsList(district2.value);
+        let neighbourhoodList2 = await data;
         if (district1.value === "Empty" || district2.value === "Empty") {
             document.querySelector("#neighbourhoodCompareButton").disabled = true;
             document.querySelector("#neighbourhoodCompareButton").classList.add('disabled');
@@ -186,7 +198,7 @@
                     }
                 }
             });
-            // We generate dynamicly the html selections for the nighbourhoods belonging to the district by using the Array generated from the above API data
+            // We generate the html selections dynamicly for the nighbourhoods belonging to the district by using the Array generated from the above API data
             neighbourhood2.innerHTML = '';
             var neighbourhoodList2Keys = Object.keys(neighbourhoodList2).sort();
             neighbourhoodList2Keys.forEach(function(item) {
@@ -196,7 +208,9 @@
                 neighbourhood2.appendChild(option);
             });
         }
+
     });
+
     /***********************     NEIGHBOURHOODCOMPARE FORM EVENT HANDLERS END    ****************************/
 
 
