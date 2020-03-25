@@ -20,7 +20,7 @@ app.use(express.json());
 // Host Static Files so css and js files can be retrieved
 app.use(express.static(path.join(__dirname, '/public')));
 // Set the port of our application, process.env.PORT lets the port be set by Heroku
-let PORT = process.env.PORT || 9090;
+const PORT = process.env.PORT || 9090;
 
 
 /******************************* Routes  ****************************/
@@ -44,7 +44,6 @@ app.get("/api/districtInfoCheck", (req,res) => {
 });
 
 app.post("/api/neighbourhoodsList", (req,res) => {
- // console.log(req.body.district);
   res.json(neighbourhoodsList(req.body.district)); 
 });
 
@@ -58,17 +57,10 @@ app.post("/api/neighbourhoodYearCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood;
   let neighbourhoodYear1 = req.body.year1;
   let neighbourhoodYear2 = req.body.year2;
-//  console.log(neighbourhood1);
-//  console.log(neighbourhoodYear1);
-//  console.log(neighbourhoodYear2);
   res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
 
 });
 
-
-app.get("/", (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
