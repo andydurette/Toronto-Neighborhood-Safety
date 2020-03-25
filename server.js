@@ -2,12 +2,12 @@
 const express = require("express");
 const path = require('path');
 // Inlcuding required data files
-let policeData = require('./files/data.json');
-let callMCI = require('./lib/callMCI.js');
-let districtInfoCheck = require('./lib/districtInfoCheck.js');
-let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
+//let policeData = require('./files/data.json');
+//let callMCI = require('./lib/callMCI.js');
+//let districtInfoCheck = require('./lib/districtInfoCheck.js');
+//let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
 //let neighbourhoodCompare = require('./lib/neighbourhoodCompare.js');
-let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
+//let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
 
 
 // Create an instance of the express app.
@@ -31,6 +31,7 @@ app.get("/", (req,res) => {
 
 /******************************* MiddleWare  ****************************/
 
+/*
 app.get("/api/policeData", (req,res) => {
   res.json(policeData);
 });
@@ -52,7 +53,7 @@ app.post("/api/neighbourhoodsCompare", (req,res) => {
   let neighbourhood2 = req.body.neighbourhood2;
   res.json(neighbourhoodCompare(neighbourhood1,neighbourhood2)); 
 });
-*/
+
 app.post("/api/neighbourhoodYearCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood;
   let neighbourhoodYear1 = req.body.year1;
@@ -60,6 +61,7 @@ app.post("/api/neighbourhoodYearCompare", (req,res) => {
   res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
 
 });
+*/
 
 
 // Start our server so that it can begin listening to client requests.
