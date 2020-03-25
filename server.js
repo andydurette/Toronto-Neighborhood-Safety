@@ -18,6 +18,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 // Added so body parser can handle post requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// Host Static Files so css and js files can be retrieved
+app.use(express.static(path.join(__dirname, '/public')));
 // Set the port of our application, process.env.PORT lets the port be set by Heroku
 let PORT = process.env.PORT || 9090;
 
@@ -65,27 +67,9 @@ app.post("/api/neighbourhoodYearCompare", (req,res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get("/", (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
