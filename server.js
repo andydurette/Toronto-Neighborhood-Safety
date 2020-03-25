@@ -6,7 +6,7 @@ let policeData = require('./files/data.json');
 let callMCI = require('./lib/callMCI.js');
 let districtInfoCheck = require('./lib/districtInfoCheck.js');
 let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
-let neighbourhoodCompare = require('./lib/neighbourhoodCompare.js');
+//let neighbourhoodCompare = require('./lib/neighbourhoodCompare.js');
 let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
 
 
@@ -46,13 +46,13 @@ app.get("/api/districtInfoCheck", (req,res) => {
 app.post("/api/neighbourhoodsList", (req,res) => {
   res.json(neighbourhoodsList(req.body.district)); 
 });
-
+/*
 app.post("/api/neighbourhoodsCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood1;
   let neighbourhood2 = req.body.neighbourhood2;
   res.json(neighbourhoodCompare(neighbourhood1,neighbourhood2)); 
 });
-
+*/
 app.post("/api/neighbourhoodYearCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood;
   let neighbourhoodYear1 = req.body.year1;
