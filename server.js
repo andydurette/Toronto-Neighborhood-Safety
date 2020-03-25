@@ -47,7 +47,7 @@ app.get("/api/districtInfoCheck", (req,res) => {
 app.post("/api/neighbourhoodsList", (req,res) => {
   res.json(neighbourhoodsList(req.body.district)); 
 });
-/*
+
 app.post("/api/neighbourhoodsCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood1;
   let neighbourhood2 = req.body.neighbourhood2;
@@ -60,7 +60,7 @@ app.post("/api/neighbourhoodYearCompare", (req,res) => {
   let neighbourhoodYear2 = req.body.year2;
   res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
 });
-*/
+
 
 
 // Start our server so that it can begin listening to client requests.
