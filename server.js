@@ -43,11 +43,11 @@ app.get("/api/districtInfoCheck", (req,res) => {
  res.json(districtInfoCheck());
 });
 
-/*
+
 app.post("/api/neighbourhoodsList", (req,res) => {
   res.json(neighbourhoodsList(req.body.district)); 
 });
-
+/*
 app.post("/api/neighbourhoodsCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood1;
   let neighbourhood2 = req.body.neighbourhood2;
