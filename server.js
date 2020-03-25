@@ -6,7 +6,7 @@ let policeData = require('./files/data.json');
 let callMCI = require('./lib/callMCI.js');
 let districtInfoCheck = require('./lib/districtInfoCheck.js');
 let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
-let neighbourhoodCompare = require('./lib/neighbourhoodCompare.js');
+let neighbourhoodCompare = require('./lib/neighbourHoodCompare.js');
 let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
 
 
