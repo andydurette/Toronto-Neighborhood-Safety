@@ -1,6 +1,5 @@
 // Server Dependencies
 const express = require("express");
-const bodyParser = require('body-parser');
 const path = require('path');
 // Inlcuding required data files
 let policeData = require('./files/data.json');
@@ -15,9 +14,9 @@ let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
 let app = express();
 // Host Static Files so css and js files can be retrieved
 app.use(express.static(path.join(__dirname, '/public')));
-// Added so body parser can handle post requests
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Define middleware here, added parser to handle post requests
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // Host Static Files so css and js files can be retrieved
 app.use(express.static(path.join(__dirname, '/public')));
 // Set the port of our application, process.env.PORT lets the port be set by Heroku
