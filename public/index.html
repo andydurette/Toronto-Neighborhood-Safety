@@ -14,12 +14,6 @@
 
 <body>
 
-    <!-- Loading Screen -->
-    <section id="loadingScreen">
-        <h2>Loading Application data</h2>
-        <img src="assets/images/loading.svg" alt="Loading gif">
-    </section>
-
     <!-- MODAL CONTENT -->
     <div class="modalOverlay hide" id="modalOverlay"></div>
     <div class="modal hide" id="modal">
@@ -75,7 +69,7 @@
         <p>Chose two police divisions and a neighbourhood in each division to compare the all reported crimes from 2014 to 2018.</p>
 
 
-        <div id="neighbourhoodCompareBlock">
+        <div id="neighbourhoodCompareBlock">  
 
             <div>
                 <form>
@@ -107,7 +101,7 @@
                     </label>
                     </div>
 
-                    <button id="neighbourhoodCompareButton" class="disabled" disabled>Compare</button>
+                    <button type="submit" value="Submit" id="neighbourhoodCompareButton" class="disabled" disabled>Compare</button>
                 </form>
 
                 
@@ -156,7 +150,7 @@
                             <select id="year2" name="year2" class="select-field"></select>
                         </label>
                     </div>
-                    <button id="yearViewCompareButton" class="disabled" disabled>Compare</button>
+                    <button type="submit" value="Submit" id="yearViewCompareButton" class="disabled" disabled>Compare</button>
                 </form>
                 
             </div>
@@ -172,7 +166,7 @@
     </section>
 
     <footer>
-        <p>©Team1 UFT</p>
+        <p>©Andy Durette</p>
     </footer>
 
     <!-- Initial src libraries -->

@@ -7,6 +7,8 @@ let policeData = require('./files/data.json');
 let callMCI = require('./lib/callMCI.js');
 let districtInfoCheck = require('./lib/districtInfoCheck.js');
 let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
+let neighbourhoodCompare = require('./lib/neighbourhoodCompare.js');
+let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
 
 
 // Create an instance of the express app.
@@ -33,8 +35,6 @@ app.get("/api/policeData", (req,res) => {
 });
 
 app.post("/api/mapMCI", (req,res) => {
-  //console.log(req.body.district);
-  //console.log(callMCI(req.body.district));
  res.json(callMCI(req.body.district));
 });
 
@@ -43,12 +43,28 @@ app.get("/api/districtInfoCheck", (req,res) => {
 });
 
 app.post("/api/neighbourhoodsList", (req,res) => {
-  console.log(req.body.district);
-  //res.sendStatus(200);
-  //console.log(neighbourhoodsList(req.body.district));
+ // console.log(req.body.district);
   res.json(neighbourhoodsList(req.body.district)); 
-  //res.sendStatus(200);
 });
+
+app.post("/api/neighbourhoodsCompare", (req,res) => {
+  let neighbourhood1 = req.body.neighbourhood1;
+  let neighbourhood2 = req.body.neighbourhood2;
+  res.json(neighbourhoodCompare(neighbourhood1,neighbourhood2)); 
+});
+
+app.post("/api/neighbourhoodYearCompare", (req,res) => {
+  let neighbourhood1 = req.body.neighbourhood;
+  let neighbourhoodYear1 = req.body.year1;
+  let neighbourhoodYear2 = req.body.year2;
+//  console.log(neighbourhood1);
+//  console.log(neighbourhoodYear1);
+//  console.log(neighbourhoodYear2);
+  res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
+
+});
+
+
 
 
 
