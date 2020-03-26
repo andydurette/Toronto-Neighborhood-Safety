@@ -67,7 +67,7 @@ mciApi.getRecordsP(district);
 
 /* Horizontal Bar Build Chart Start */
 
-document.querySelector('.modal-guts h2').innerHTML = `Crime during 2014-2018`;    
+document.querySelector('.modal-guts h2').innerHTML = `Crime during 2014-2019`;    
 document.getElementById("modal").classList.remove("hide");
 document.getElementById("modalOverlay").classList.remove("hide"); 
 

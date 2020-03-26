@@ -50,16 +50,28 @@ p{
 /* Individual pages general styles */
 
 #home {
-	background-color: #1b2b58;
+	background-color: #717c79;
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background-image: url("../images/background.jpg");
+	background-image: url("../images/safety1.svg");
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-position: center bottom;
+	min-height:100%;
+	padding-bottom:250px;
+	overflow: hidden;
+	position:relative;
+}
+
+#homeMessage{
+	border-radius:5px;
+	width:90%;
+	background-color:rgba(0,0,0,0.85);
+	padding-bottom:20px;
+	margin-bottom:300px;
 }
 
 #home h1 {
@@ -69,11 +81,7 @@ p{
 #home p {
 	padding: 10px;
 	max-width: 75%;
-}
-
-#home img {
-	margin:20px 0;
-	width: 177px;
+	margin: 0 auto;
 }
 
 #districtView {
@@ -200,6 +208,8 @@ footer {
 		height: 100vh;
 		min-height: 700px;
 		padding: 30px 0;
+		padding-bottom:100px;
+		background-size: cover;
 	}
 	#neighbourhoodView,
 	#yearView {
