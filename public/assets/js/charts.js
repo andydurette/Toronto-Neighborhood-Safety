@@ -13,14 +13,14 @@ var horizontalBarChartData = {
   labels: ['Assault', 'Theft Over', 'Break and Enter', 'Robbery', 'Auto Theft'],
   datasets: [{
       label: 'District 1',
-      backgroundColor: color("#3e95cd").alpha(0.5).rgbString(),
-      borderColor: "#3e95cd",
+      backgroundColor: color("#4b5653").alpha(1).rgbString(),
+      borderColor: "#4b5653",
       borderWidth: 1,
       data: [0, 0, 0, 0, 0]
   }, {
       label: 'District 2',
-      backgroundColor: color("#8e5ea2").alpha(0.5).rgbString(),
-      borderColor: "#8e5ea2",
+      backgroundColor: color("#f1ba4a").alpha(1).rgbString(),
+      borderColor: "#f1ba4a",
       data: [0, 0, 0, 0, 0]
   }]
 };
@@ -85,14 +85,14 @@ var horizontalBarChartData = {
     labels: ['Assault', 'Theft Over', 'Break and Enter', 'Robbery', 'Auto Theft'],
     datasets: [{
         label: 'District 1',
-        backgroundColor: color("#3e95cd").alpha(0.5).rgbString(),
-        borderColor: "#3e95cd",
+        backgroundColor: color("#4b5653").alpha(1).rgbString(),
+        borderColor: "#4b5653",
         borderWidth: 1,
         data: [0, 0, 0, 0, 0]
     }, {
         label: 'District 2',
-        backgroundColor: color("#8e5ea2").alpha(0.5).rgbString(),
-        borderColor: "#8e5ea2",
+        backgroundColor: color("#f1ba4a").alpha(1).rgbString(),
+        borderColor: "#f1ba4a",
         data: [0, 0, 0, 0, 0]
     }]
 };
