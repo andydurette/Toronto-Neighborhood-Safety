@@ -12,9 +12,9 @@
   position:absolute;
   width:100%;
   height:100px;
-  margin-top:300px;
   overflow:hidden;
   animation: drive 8s linear infinite;
+  bottom: 56px;
 }
 
 #car{
