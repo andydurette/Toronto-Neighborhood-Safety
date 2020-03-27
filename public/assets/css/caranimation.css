@@ -20,13 +20,13 @@
 #car{
   left:0;
   margin-top: 0;
-  width: 330px;
+  width: 220px;
   position:absolute;
 }
 
 #wheel1, #wheel2{
 position:absolute;
-bottom: 10px;
+bottom: 12px;
 animation:rotate 1.5s linear infinite;
 transform-origin: 50% 40%;
 width:32px;
