@@ -15,7 +15,7 @@ scriptAdd('assets/js/districtCheck.js');
 scriptAdd('assets/js/navControls.js');
 scriptAdd('assets/js/neighbourHoodCompare.js');
 scriptAdd('assets/js/neighbourHoodYearCompare.js');
-
+scriptAdd('assets/js/time.js');
 }
 
 finishSetup()
