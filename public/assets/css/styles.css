@@ -58,7 +58,7 @@ p{
 	align-items: center;
 	text-align: center;
 	background-image: url("../images/safety1.svg");
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 	background-position: center bottom;
 	min-height:100%;
 	padding-bottom:250px;
@@ -209,7 +209,6 @@ footer {
 		min-height: 700px;
 		padding: 30px 0;
 		padding-bottom:100px;
-		background-size: cover;
 	}
 	#neighbourhoodView,
 	#yearView {
