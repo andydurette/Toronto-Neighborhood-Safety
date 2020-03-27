@@ -19,26 +19,27 @@
 
 #car{
   left:0;
-  width:300px;
+  margin-top: 0;
+  width: 330px;
   position:absolute;
 }
 
 #wheel1, #wheel2{
 position:absolute;
-bottom: 0px;
+bottom: 10px;
 animation:rotate 1.5s linear infinite;
 transform-origin: 50% 40%;
-width:35px;
+width:32px;
 }
 
 #wheel1{
-left: 21px;
+left: 37px;
 padding-bottom: 9px;
 }
 
 
 #wheel2{
-left: 122px;
+left: 168px;
 padding-bottom: 9px;
 }
 
