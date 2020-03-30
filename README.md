@@ -4,8 +4,8 @@
 **Upgraded version of my project 1 done for my University of Toronto coding Bootcamp.**
 
 
-**API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data
-**Original Repo:** https://github.com/andydurette/UFT-Project-1
+**API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data<br/>
+**Original Repo:** https://github.com/andydurette/UFT-Project-1<br/>
 **Live Link:** https://toronto-neighbourhood-safety.herokuapp.com/ 
 
 **Project Details**
