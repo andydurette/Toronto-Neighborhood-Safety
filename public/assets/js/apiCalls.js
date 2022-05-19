@@ -25,7 +25,6 @@ const API = {
           });
       
           const json = await res.json();
-          console.log(json);
           return json
   },
   async neighbourhoodYearCompare(e) {
@@ -40,7 +39,7 @@ const API = {
         });
     
         const json = await res.json();
-      //  console.log(json);
+
         return json
 }
 }

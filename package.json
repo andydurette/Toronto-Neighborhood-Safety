@@ -1,6 +1,7 @@
 {
   "name": "toronto-neighbourhood-safety",
   "version": "1.0.0",
+  "type": "module",
   "description": "Toronto neighbourhood danger statistics",
   "main": "server.js",
   "scripts": {
@@ -29,6 +30,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
+    "json-loader": "^0.5.7",
+    "node-fetch": "^2.6.7",
     "path": "^0.12.7"
   }
 }

@@ -446,7 +446,6 @@ function initMap() {
     ;
 }
 initMap();
-// console.log(polygonCoordinates);
 
 
 // Array of Markers
@@ -640,8 +639,6 @@ function addMarker(props) {
         });
 
         marker.addListener('click', function() {
-            //infoWindow.open(map,marker);
-            //console.log(props.division);
             var division = String(props.division);
             callMCI(division);
         })

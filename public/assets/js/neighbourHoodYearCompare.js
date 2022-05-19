@@ -86,7 +86,6 @@
     let neighbourHoodYearCompareData = function(apiData) {
         // Set to Record all major crime indicators (MCI) from the APIDATA for one neighbourhood by different years
         // Loop through to provide all the data on MCI'S and how many
-        console.log(apiData);
        let crimeValues1 = Object.values(apiData.Neighbourhood1MCI);
         let crimeValues2 = Object.values(apiData.Neighbourhood2MCI);
 

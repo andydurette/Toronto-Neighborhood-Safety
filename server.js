@@ -1,17 +1,21 @@
 // Server Dependencies
-const express = require("express");
-const path = require('path');
-// Inlcuding required data files
-let policeData = require('./files/data.json');
-let callMCI = require('./lib/callMCI.js');
-let districtInfoCheck = require('./lib/districtInfoCheck.js');
-let neighbourhoodsList = require('./lib/neighbourhoodsList.js');
-let neighbourhoodCompare = require('./lib/neighbourhoodCompare.js');
-let neighbourhoodYearCompare = require('./lib/neighbourhoodYearCompare.js');
+import express from 'express';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
+import callMCI from './lib/callMCI.js';
+import districtInfoCheck from './lib/districtInfoCheck.js';
+import neighbourhoodsList from './lib/neighbourhoodsList.js';
+import neighbourhoodCompare from './lib/neighbourhoodCompare.js';
+import neighbourhoodYearCompare from './lib/neighbourhoodYearCompare.js';
+
+// Including required data files
+// import policeData from './lib/policeData.js';
+// let callPoliceData = await policeData();
 
 // Create an instance of the express app.
 let app = express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
 // Host Static Files so css and js files can be retrieved
 app.use(express.static(path.join(__dirname, '/public')));
 // Define middleware here, added parser to handle post requests
@@ -23,44 +27,68 @@ app.use(express.static(path.join(__dirname, '/public')));
 const PORT = process.env.PORT || 9090;
 
 
-/******************************* Routes  ****************************/
+// /******************************* Routes  ****************************/
 
 app.get("/", (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-/******************************* MiddleWare  ****************************/
+// /******************************* MiddleWare  ****************************/
 
 app.get("/api/policeData", (req,res) => {
-  res.json(policeData);
+  try{
+    return res.json();
+  }catch(err){
+    res.status(500).send(err);
+  }
 });
 
 app.post("/api/mapMCI", (req,res) => {
- res.json(callMCI(req.body.district));
+  try {
+    res.json(callMCI(req.body.district));
+  } catch(err) {
+    res.status(500).send(err);
+  }
+ 
 });
 
 app.get("/api/districtInfoCheck", (req,res) => {
- res.json(districtInfoCheck());
+  try {
+    res.json(districtInfoCheck());
+  } catch(err) {
+    res.status(500).send(err);
+  }
 });
 
 
 app.post("/api/neighbourhoodsList", (req,res) => {
-  res.json(neighbourhoodsList(req.body.district)); 
+  try {
+    res.json(neighbourhoodsList(req.body.district)); 
+  } catch(err) {
+    res.status(500).send(err);
+  }
 });
 
 app.post("/api/neighbourhoodsCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood1;
   let neighbourhood2 = req.body.neighbourhood2;
-  res.json(neighbourhoodCompare(neighbourhood1,neighbourhood2)); 
+  try {
+    res.json(neighbourhoodCompare(neighbourhood1, neighbourhood2)); 
+  } catch(err) {
+    res.status(500).send(err);
+  }
 });
 
 app.post("/api/neighbourhoodYearCompare", (req,res) => {
   let neighbourhood1 = req.body.neighbourhood;
   let neighbourhoodYear1 = req.body.year1;
   let neighbourhoodYear2 = req.body.year2;
-  res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
+  try {
+    res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
+  } catch(err) {
+    res.status(500).send(err);
+  }
 });
-
 
 
 // Start our server so that it can begin listening to client requests.
