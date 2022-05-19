@@ -28,7 +28,6 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "axios": "^0.19.2",
     "express": "^4.17.1",
     "json-loader": "^0.5.7",
     "node-fetch": "^2.6.7",
