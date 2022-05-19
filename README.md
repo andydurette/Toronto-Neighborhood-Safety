@@ -1,11 +1,12 @@
-# UFT-Project-1: Is your Neighborhood Safe
-
-**Project 1 for University of Toronto coding Bootcamp.**
+# Is your Neighborhood Safe?
 
 
-**API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data 
+**Upgraded version of my project 1 done for my University of Toronto coding Bootcamp.**
 
-**Original Repo:** https://github.com/andydurette/UFT-Project-1 
+
+**API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data<br/>
+**Original Repo:** https://github.com/andydurette/UFT-Project-1<br/>
+**Live Link:** https://toronto-neighbourhood-safety.herokuapp.com/ 
 
 **Project Details**
 This project was made with one thing in mind how safe are Toronto neighbourhoods, it's not easy to answer as what quantifies safe in the first place? I though to take a few different approaches on how to question this question with the toronto Police's open crime Data which details all the crime in toronto by police district.
