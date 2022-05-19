@@ -35,18 +35,20 @@ app.get("/", (req,res) => {
 
 // /******************************* MiddleWare  ****************************/
 
-app.get("/api/policeData", (req,res) => {
-  try{
-    return res.json();
-  }catch(err){
-    res.status(500).send(err);
-  }
-});
+// app.get("/api/policeData", (req,res) => {
+//   try{
+//     return res.json();
+//   }catch(err){
+//     console.log('policeData error: ', err);
+//     res.status(500).send(err);
+//   }
+// });
 
 app.post("/api/mapMCI", (req,res) => {
   try {
     res.json(callMCI(req.body.district));
   } catch(err) {
+    console.log('mapMCI error: ', err);
     res.status(500).send(err);
   }
  
@@ -56,6 +58,7 @@ app.get("/api/districtInfoCheck", (req,res) => {
   try {
     res.json(districtInfoCheck());
   } catch(err) {
+    console.log('districtInfoCheck error: ', err);
     res.status(500).send(err);
   }
 });
@@ -65,6 +68,7 @@ app.post("/api/neighbourhoodsList", (req,res) => {
   try {
     res.json(neighbourhoodsList(req.body.district)); 
   } catch(err) {
+    console.log('neighbourhoodsList error: ', err);
     res.status(500).send(err);
   }
 });
@@ -75,6 +79,7 @@ app.post("/api/neighbourhoodsCompare", (req,res) => {
   try {
     res.json(neighbourhoodCompare(neighbourhood1, neighbourhood2)); 
   } catch(err) {
+    console.log('neighbourhoodsCompare error: ', err);
     res.status(500).send(err);
   }
 });
@@ -86,6 +91,7 @@ app.post("/api/neighbourhoodYearCompare", (req,res) => {
   try {
     res.json(neighbourhoodYearCompare(neighbourhood1, neighbourhoodYear1, neighbourhoodYear2)); 
   } catch(err) {
+    console.log('neighbourhoodYearCompare error: ', err);
     res.status(500).send(err);
   }
 });
