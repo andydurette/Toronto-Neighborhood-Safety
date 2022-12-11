@@ -28,7 +28,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "json-loader": "^0.5.7",
     "node-fetch": "^2.6.7",
     "path": "^0.12.7"
